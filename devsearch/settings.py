@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-!f1ially$#^6%_0)3r=@wr45a(%1o17qyti9@ixt(8^ftx-dgb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'devsearch-x.herokuapp.com/']   # New Added Parital
-ALLOWED_HOSTS =['*']
+ALLOWED_HOSTS = ['devsearch-x.herokuapp.com/']   # New Added Parital
+#ALLOWED_HOSTS =['*']
 
 # Application definition
 
@@ -132,17 +132,6 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 #     }
 # }
 
-# Protect Information
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'devsearch',
-#         'USER': 'xzhang55',
-#         'PASSWORD': 'woshiZhangxin0603',
-#         'HOST': 'database-1.c1ndgpwzhwsd.us-east-2.rds.amazonaws.com',
-#         'PORT': '5432'
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -195,8 +184,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-# EMAIL_HOST_USER = 'xxzhang603@gmail.com'
-# EMAIL_HOST_PASSWORD ='jrkjhgshkuuxcnkz'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -227,9 +215,7 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-# AWS_ACCESS_KEY_ID = 'AKIAVKNUREFE65KQRYE4'  # Like token
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'devsearch-bucket-xin'
+
 
 if os.getcwd() == '/app':
     DEBUG = False
