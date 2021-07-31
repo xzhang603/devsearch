@@ -132,13 +132,25 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 #     }
 # }
 
+# Protect Information
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'devsearch',
+#         'USER': 'xzhang55',
+#         'PASSWORD': 'woshiZhangxin0603',
+#         'HOST': 'database-1.c1ndgpwzhwsd.us-east-2.rds.amazonaws.com',
+#         'PORT': '5432'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'devsearch',
-        'USER': 'xzhang55',
-        'PASSWORD': 'woshiZhangxin0603',
-        'HOST': 'database-1.c1ndgpwzhwsd.us-east-2.rds.amazonaws.com',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': os.environ.get('DB_HOST'),
         'PORT': '5432'
     }
 }
@@ -181,8 +193,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'xxzhang603@gmail.com'
-EMAIL_HOST_PASSWORD ='jrkjhgshkuuxcnkz'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+# EMAIL_HOST_USER = 'xxzhang603@gmail.com'
+# EMAIL_HOST_PASSWORD ='jrkjhgshkuuxcnkz'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -210,9 +224,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_QUERYSTRING_AUTH = False   # Do not let other people see your AWS access-key and id
 AWS_S3_FILE_OVERWRITE = False
-AWS_ACCESS_KEY_ID = 'AKIAVKNUREFE65KQRYE4'  # Like token
-AWS_SECRET_ACCESS_KEY = 'vULgrM3iXjFqQWNy/ZiZLV6LSpPW+0oVUiCupAzu'
-AWS_STORAGE_BUCKET_NAME = 'devsearch-bucket-xin'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+# AWS_ACCESS_KEY_ID = 'AKIAVKNUREFE65KQRYE4'  # Like token
+# AWS_SECRET_ACCESS_KEY = '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'
+# AWS_STORAGE_BUCKET_NAME = 'devsearch-bucket-xin'
 
 if os.getcwd() == '/app':
     DEBUG = False
