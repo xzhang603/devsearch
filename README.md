@@ -1,8 +1,3 @@
-# devsearch# DevSearch
-Sourcode and Resources for Django 2021 Course
-
-See the full course here: https://dennisivy.teachable.com/p/django-beginners-course
-
 
 # Installation
 * 1 - clone repo https://github.com/xzhang603/devsearch
