@@ -68,8 +68,9 @@ def updateProject(request, pk):
 
         form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
-            project = form.save(commit=False)
-        
+            form.save()
+            project = profile.project_set.get(id=pk)
+            
             for tag in newtags:
                 tag, created = Tag.objects.get_or_create(name=tag)
                 project.tags.add(tag)
